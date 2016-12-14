@@ -11,7 +11,7 @@ Spree::Order.class_eval do
 
   # Create a new invoice before transitioning to complete
   #
-  state_machine.before_transition to: :complete, do: :invoice_for_order
+  state_machine.after_transition to: :complete, do: :invoice_for_order
 
   # Backwards compatibility stuff. Please don't use these methods, rather use the
   # ones on Spree::BookkeepingDocument
